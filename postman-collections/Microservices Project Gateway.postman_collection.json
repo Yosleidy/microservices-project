@@ -1,0 +1,43 @@
+{
+  "info": {
+    "name": "Microservices Project Gateway",
+    "_postman_id": "12345678-abcd-efgh-ijkl-1234567890ab",
+    "description": "Collection para probar todos los microservicios vía API Gateway",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User Service",
+      "item": [
+        { "name": "Get All Users", "request": { "method": "GET", "url": "{{baseUrl}}/users" } },
+        { "name": "Get User by ID", "request": { "method": "GET", "url": "{{baseUrl}}/users/1" } },
+        { "name": "Create User", "request": { "method": "POST", "header":[{"key":"Content-Type","value":"application/json"}], "body": { "mode":"raw", "raw": "{\"name\":\"Jorge\",\"email\":\"jorge@example.com\"}" }, "url": "{{baseUrl}}/users" } },
+        { "name": "Update User", "request": { "method": "PUT", "header":[{"key":"Content-Type","value":"application/json"}], "body": { "mode":"raw", "raw": "{\"name\":\"Jorge Updated\",\"email\":\"jorge.updated@example.com\"}" }, "url": "{{baseUrl}}/users/1" } },
+        { "name": "Delete User", "request": { "method": "DELETE", "url": "{{baseUrl}}/users/1" } }
+      ]
+    },
+    {
+      "name": "Order Service",
+      "item": [
+        { "name": "Get All Orders", "request": { "method": "GET", "url": "{{baseUrl}}/orders" } },
+        { "name": "Get Order by ID", "request": { "method": "GET", "url": "{{baseUrl}}/orders/5" } },
+        { "name": "Create Order", "request": { "method": "POST", "header":[{"key":"Content-Type","value":"application/json"}], "body": { "mode":"raw", "raw": "{\"userId\":1,\"items\":[{\"productId\":2,\"quantity\":3},{\"productId\":5,\"quantity\":1}]}" }, "url": "{{baseUrl}}/orders" } },
+        { "name": "Update Order", "request": { "method": "PUT", "header":[{"key":"Content-Type","value":"application/json"}], "body": { "mode":"raw", "raw": "{\"status\":\"COMPLETED\"}"}, "url": "{{baseUrl}}/orders/5" } },
+        { "name": "Delete Order", "request": { "method": "DELETE", "url": "{{baseUrl}}/orders/5" } }
+      ]
+    },
+    {
+      "name": "Product Service",
+      "item": [
+        { "name": "Get All Products", "request": { "method": "GET", "url": "{{baseUrl}}/products" } },
+        { "name": "Get Product by ID", "request": { "method": "GET", "url": "{{baseUrl}}/products/2" } },
+        { "name": "Create Product", "request": { "method": "POST", "header":[{"key":"Content-Type","value":"application/json"}], "body": { "mode":"raw", "raw": "{\"name\":\"Laptop\",\"price\":1200}" }, "url": "{{baseUrl}}/products" } },
+        { "name": "Update Product", "request": { "method": "PUT", "header":[{"key":"Content-Type","value":"application/json"}], "body": { "mode":"raw", "raw": "{\"name\":\"Laptop Updated\",\"price\":1500}" }, "url": "{{baseUrl}}/products/2" } },
+        { "name": "Delete Product", "request": { "method": "DELETE", "url": "{{baseUrl}}/products/2" } }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ]
+}
